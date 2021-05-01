@@ -8,7 +8,7 @@ POST_CODE = "751024"
 age = 26
 
 base = datetime.datetime.today()
-date_list = [base + datetime.timedelta(days=x) for x in range(30)]
+date_list = [base + datetime.timedelta(days=x) for x in range(31)]
 date_str = [x.strftime("%d-%m-%Y") for x in date_list]
 
 for INP_DATE in date_str:
