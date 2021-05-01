@@ -13,6 +13,7 @@ base = datetime.datetime.today()
 date_list = [base + datetime.timedelta(days=x) for x in range(31)]
 date_str = [x.strftime("%d-%m-%Y") for x in date_list]
 
+count = 0
 for INP_DATE in date_str:
     URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}".format(DIST_ID, INP_DATE)
     response = requests.get(URL)
@@ -20,7 +21,6 @@ for INP_DATE in date_str:
         resp_json = response.json()
         # print(json.dumps(resp_json, indent = 1))
         if resp_json["centers"]:
-            count = 0
             for center in resp_json["centers"]:
                 for session in center["sessions"]:
                     if session["min_age_limit"] <= age:
