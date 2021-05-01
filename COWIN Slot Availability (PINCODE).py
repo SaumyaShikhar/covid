@@ -4,6 +4,7 @@ import requests
 import datetime
 import json
 
+#Enter user inputs
 POST_CODE = "751024"
 age = 26
 
